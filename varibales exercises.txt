@@ -1,0 +1,190 @@
+Exercise 1: Calculate the area of a rectangle.
+Write a Java program that calculates the area of a rectangle using the 
+formula area = length * width. Prompt the user to enter the length and width of the rectangle.
+
+
+import java.util.Scanner;
+
+public class RectangleArea {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the length of the rectangle: ");
+        double length = scanner.nextDouble();
+
+        System.out.print("Enter the width of the rectangle: ");
+        double width = scanner.nextDouble();
+
+        double area = length * width;
+
+        System.out.println("The area of the rectangle is: " + area);
+
+        scanner.close();
+    }
+}
+
+
+Exercise 2: Calculate the area and circumference of a circle.
+Write a Java program that calculates the area and circumference of a 
+circle using the formulas area = π * radius * radius and circumference = 2 * π * radius. Prompt the user to enter the radius of the circle.
+
+
+import java.util.Scanner;
+
+public class CircleAreaAndCircumference {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the radius of the circle: ");
+        double radius = scanner.nextDouble();
+
+        double pi = 3.14159265359; // You can also use Math.PI
+
+        double area = pi * radius * radius;
+        double circumference = 2 * pi * radius;
+
+        System.out.println("The area of the circle is: " + area);
+        System.out.println("The circumference of the circle is: " + circumference);
+
+        scanner.close();
+    }
+}
+
+
+Exercise 3: Calculate the average of three numbers.
+Write a Java program that calculates the average of three numbers.
+ Prompt the user to enter three numbers, and then compute and display their average.
+
+
+import java.util.Scanner;
+
+public class AverageOfThreeNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the first number: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter the second number: ");
+        double num2 = scanner.nextDouble();
+
+        System.out.print("Enter the third number: ");
+        double num3 = scanner.nextDouble();
+
+        double average = (num1 + num2 + num3) / 3;
+
+        System.out.println("The average of the three numbers is: " + average);
+
+        scanner.close();
+    }
+}
+
+
+Exercise 4: Convert Celsius to Fahrenheit.
+Write a Java program that converts a temperature in Celsius to 
+Fahrenheit using the formula Fahrenheit = (Celsius * 9/5) + 32. 
+Prompt the user to enter a temperature in Celsius and then display the equivalent temperature in Fahrenheit.
+
+
+import java.util.Scanner;
+
+public class CelsiusToFahrenheit {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter temperature in Celsius: ");
+        double celsius = scanner.nextDouble();
+
+        double fahrenheit = (celsius * 9/5) + 32;
+
+        System.out.println("Temperature in Fahrenheit: " + fahrenheit);
+
+        scanner.close();
+    }
+}
+Exercise 5: Swap two numbers.
+Write a Java program that swaps the values of two variables. 
+Prompt the user to enter two numbers, and then swap the 
+values of those numbers without using a temporary variable.
+
+
+import java.util.Scanner;
+
+public class SwapNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+
+        // Swap the values without a temporary variable
+        num1 = num1 + num2;
+        num2 = num1 - num2;
+        num1 = num1 - num2;
+
+        System.out.println("After swapping:");
+        System.out.println("First number: " + num1);
+        System.out.println("Second number: " + num2);
+
+        scanner.close();
+    }
+}
+Exercise 6: Calculate the factorial of a number.
+Write a Java program that calculates the factorial of a non-negative integer. 
+Prompt the user to enter a number, and then compute and display its factorial.
+
+import java.util.Scanner;
+
+public class Factorial {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a non-negative integer: ");
+        int n = scanner.nextInt();
+
+        int factorial = 1;
+
+        for (int i = 1; i <= n; i++) {
+            factorial *= i;
+        }
+
+        System.out.println("Factorial of " + n + " is: " + factorial);
+
+        scanner.close();
+    }
+}
+
+Exercise 7: Calculate the power of a number.
+Write a Java program that calculates the power of a number.
+ Prompt the user to enter a base and an exponent, and then compute and display the result.
+
+
+
+import java.util.Scanner;
+
+public class PowerOfNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the base: ");
+        double base = scanner.nextDouble();
+
+        System.out.print("Enter the exponent: ");
+        double exponent = scanner.nextDouble();
+
+        double result = Math.pow(base, exponent);
+
+        System.out.println(base + " raised to the power of " + exponent + " is: " + result);
+
+        scanner.close();
+    }
+}
+
+
+
+
+
+

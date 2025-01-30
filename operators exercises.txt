@@ -1,0 +1,94 @@
+Exercise 1: Arithmetic Operators
+Write a Java program that calculates and prints the result of the following arithmetic operations:
+
+Addition
+Subtraction
+Multiplication
+Division
+Modulus
+
+public class ArithmeticOperators {
+    public static void main(String[] args) {
+        int num1 = 10;
+        int num2 = 5;
+
+        int addition = num1 + num2;
+        int subtraction = num1 - num2;
+        int multiplication = num1 * num2;
+        int division = num1 / num2;
+        int modulus = num1 % num2;
+
+        System.out.println("Addition: " + addition);
+        System.out.println("Subtraction: " + subtraction);
+        System.out.println("Multiplication: " + multiplication);
+        System.out.println("Division: " + division);
+        System.out.println("Modulus: " + modulus);
+    }
+}
+Exercise 2: Comparison Operators
+Write a Java program that compares two integers and prints whether they are equal, not equal, greater than, less than, greater than or equal to, and less than or equal to.
+
+
+public class ComparisonOperators {
+    public static void main(String[] args) {
+        int num1 = 10;
+        int num2 = 5;
+
+        System.out.println("Equal: " + (num1 == num2));
+        System.out.println("Not Equal: " + (num1 != num2));
+        System.out.println("Greater Than: " + (num1 > num2));
+        System.out.println("Less Than: " + (num1 < num2));
+        System.out.println("Greater Than or Equal To: " + (num1 >= num2));
+        System.out.println("Less Than or Equal To: " + (num1 <= num2));
+    }
+}
+Exercise 3: Logical Operators
+Write a Java program that uses logical operators to determine if a given number is within a specified range (between 10 and 20, inclusive).
+
+
+public class LogicalOperators {
+    public static void main(String[] args) {
+        int number = 15;
+
+        boolean isWithinRange = (number >= 10) && (number <= 20);
+
+        if (isWithinRange) {
+            System.out.println(number + " is within the range 10 to 20.");
+        } else {
+            System.out.println(number + " is not within the range 10 to 20.");
+        }
+    }
+}
+Exercise 4: Bitwise Operators
+Write a Java program that performs bitwise AND, OR, XOR, and NOT operations on two integers and prints the results.
+
+java
+Copy code
+public class BitwiseOperators {
+    public static void main(String[] args) {
+        int x = 5;  // binary: 0101
+        int y = 3;  // binary: 0011
+
+        int andResult = x & y;
+        int orResult = x | y;
+        int xorResult = x ^ y;
+        int complementResult = ~x;
+
+        System.out.println("Bitwise AND: " + andResult);   // Output: 1
+        System.out.println("Bitwise OR: " + orResult);     // Output: 7
+        System.out.println("Bitwise XOR: " + xorResult);   // Output: 6
+        System.out.println("Bitwise NOT: " + complementResult); // Output: -6
+    }
+}
+Exercise 5: Ternary Operator
+Write a Java program that uses the ternary operator to determine if a given number is even or odd and prints the result.
+
+java
+Copy code
+public class TernaryOperator {
+    public static void main(String[] args) {
+        int number = 12;
+        String result = (number % 2 == 0) ? "Even" : "Odd";
+        System.out.println(number + " is " + result);
+    }
+}

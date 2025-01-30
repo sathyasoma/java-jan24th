@@ -1,0 +1,501 @@
+Exercise: Calculator using Scanner
+Create a Java program that acts as a simple calculator. The program should do the following:
+
+Prompt the user to enter two numbers (operands) and an operator (+, -, *, or /).
+Read the input using the Scanner class.
+Perform the corresponding arithmetic operation based on the operator entered.
+Display the result to the user.
+Here's the code for this exercise:
+
+java
+Copy code
+import java.util.Scanner;
+
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the first number: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter an operator (+, -, *, /): ");
+        char operator = scanner.next().charAt(0);
+
+        System.out.print("Enter the second number: ");
+        double num2 = scanner.nextDouble();
+
+        double result = 0.0;
+
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                if (num2 != 0) {
+                    result = num1 / num2;
+                } else {
+                    System.out.println("Error: Division by zero.");
+                    System.exit(1);
+                }
+                break;
+            default:
+                System.out.println("Error: Invalid operator.");
+                System.exit(1);
+        }
+
+        System.out.println("Result: " + result);
+
+        // Close the scanner to release resources
+        scanner.close();
+    }
+}
+
+output:
+--------
+
+Enter the first number: 10
+Enter an operator (+, -, *, /): *
+Enter the second number: 5
+Result: 50.0
+
+
+Exercise: Grade Calculator using Scanner
+Create a Java program that calculates and displays a student's letter grade based on their numeric score. The program should do the following:
+
+Prompt the user to enter their numeric score (a double value).
+Read the input using the Scanner class.
+Use conditional statements to determine the letter grade according to the following scale:
+A: 90-100
+B: 80-89
+C: 70-79
+D: 60-69
+F: 0-59
+Display the calculated letter grade to the user.
+Here's the code for this exercise:
+
+java
+Copy code
+import java.util.Scanner;
+
+public class GradeCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter your numeric score: ");
+        double score = scanner.nextDouble();
+
+        char grade;
+
+        if (score >= 90 && score <= 100) {
+            grade = 'A';
+        } else if (score >= 80 && score < 90) {
+            grade = 'B';
+        } else if (score >= 70 && score < 80) {
+            grade = 'C';
+        } else if (score >= 60 && score < 70) {
+            grade = 'D';
+        } else if (score >= 0 && score < 60) {
+            grade = 'F';
+        } else {
+            System.out.println("Invalid score. Please enter a score between 0 and 100.");
+            return;
+        }
+
+        System.out.println("Your letter grade is: " + grade);
+
+        // Close the scanner to release resources
+        scanner.close();
+    }
+}
+
+output:
+-------
+
+Enter your numeric score: 85
+Your letter grade is: B
+
+
+Exercise: Number Guessing Game using Scanner
+Create a simple number guessing game in Java. The program should do the following:
+
+Generate a random number between 1 and 100 (inclusive).
+Prompt the user to guess the number.
+Read the user's input using the Scanner class.
+Provide feedback to the user, indicating whether their guess is too high, too low, or correct.
+Repeat steps 2-4 until the user correctly guesses the number.
+Display the number of attempts it took to guess correctly.
+Here's the code for this exercise:
+
+java
+Copy code
+import java.util.Random;
+import java.util.Scanner;
+
+public class NumberGuessingGame {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        int randomNumber = random.nextInt(100) + 1;
+        int numberOfAttempts = 0;
+
+        System.out.println("Welcome to the Number Guessing Game!");
+        System.out.println("I've selected a random number between 1 and 100.");
+
+        while (true) {
+            System.out.print("Enter your guess: ");
+            int userGuess = scanner.nextInt();
+            numberOfAttempts++;
+
+            if (userGuess < 1 || userGuess > 100) {
+                System.out.println("Please enter a valid guess between 1 and 100.");
+            } else if (userGuess < randomNumber) {
+                System.out.println("Too low! Try again.");
+            } else if (userGuess > randomNumber) {
+                System.out.println("Too high! Try again.");
+            } else {
+                System.out.println("Congratulations! You guessed the number.");
+                System.out.println("Number of attempts: " + numberOfAttempts);
+                break;
+            }
+        }
+
+        // Close the scanner to release resources
+        scanner.close();
+    }
+}
+
+output:
+-------
+Welcome to the Number Guessing Game!
+I've selected a random number between 1 and 100.
+Enter your guess: 50
+Too low! Try again.
+Enter your guess: 75
+Too high! Try again.
+Enter your guess: 62
+Too high! Try again.
+Enter your guess: 56
+Congratulations! You guessed the number.
+Number of attempts: 4
+
+
+
+Exercise: Student Grade Book using Arrays and Scanner
+Create a Java program that acts as a simple student grade book. The program should do the following:
+
+Prompt the user to enter the number of students.
+Create two arrays: one for student names and another for their corresponding grades.
+Read the names and grades of each student using the Scanner class.
+Calculate and display the average grade for the class.
+Display the names and grades of students who scored above the average.
+Here's the code for this exercise:
+
+java
+Copy code
+import java.util.Scanner;
+
+public class StudentGradeBook {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of students: ");
+        int numStudents = scanner.nextInt();
+
+        String[] studentNames = new String[numStudents];
+        double[] studentGrades = new double[numStudents];
+
+        double totalGrades = 0;
+
+        for (int i = 0; i < numStudents; i++) {
+            System.out.print("Enter the name of student " + (i + 1) + ": ");
+            studentNames[i] = scanner.next();
+
+            System.out.print("Enter the grade for " + studentNames[i] + ": ");
+            studentGrades[i] = scanner.nextDouble();
+
+            totalGrades += studentGrades[i];
+        }
+
+        double averageGrade = totalGrades / numStudents;
+
+        System.out.println("Average grade for the class: " + averageGrade);
+
+        System.out.println("Students with grades above the average:");
+
+        for (int i = 0; i < numStudents; i++) {
+            if (studentGrades[i] > averageGrade) {
+                System.out.println(studentNames[i] + ": " + studentGrades[i]);
+            }
+        }
+
+        // Close the scanner to release resources
+        scanner.close();
+    }
+}
+
+output:
+--------
+Enter the number of students: 3
+Enter the name of student 1: Alice
+Enter the grade for Alice: 85.5
+Enter the name of student 2: Bob
+Enter the grade for Bob: 90.0
+Enter the name of student 3: Carol
+Enter the grade for Carol: 78.5
+Average grade for the class: 84.66666666666667
+Students with grades above the average:
+Alice: 85.5
+Bob: 90.0
+
+
+Exercise: Simple Calculator with Loop and Scanner
+Create a Java program for a simple calculator that allows the user to perform addition, subtraction, multiplication, and division operations. The program should do the following:
+
+Display a menu to the user with the available operations.
+Prompt the user to choose an operation or exit.
+Read the user's input using the Scanner class.
+If the user selects an operation, prompt them to enter two numbers for the chosen operation.
+Perform the selected operation and display the result.
+Repeat steps 2-5 until the user chooses to exit.
+Here's the code for this exercise:
+
+java
+Copy code
+import java.util.Scanner;
+
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean exit = false;
+
+        while (!exit) {
+            System.out.println("Simple Calculator Menu:");
+            System.out.println("1. Addition");
+            System.out.println("2. Subtraction");
+            System.out.println("3. Multiplication");
+            System.out.println("4. Division");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice (1-5): ");
+
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter the first number: ");
+                    double num1 = scanner.nextDouble();
+                    System.out.print("Enter the second number: ");
+                    double num2 = scanner.nextDouble();
+                    System.out.println("Result: " + (num1 + num2));
+                    break;
+                case 2:
+                    System.out.print("Enter the first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter the second number: ");
+                    num2 = scanner.nextDouble();
+                    System.out.println("Result: " + (num1 - num2));
+                    break;
+                case 3:
+                    System.out.print("Enter the first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter the second number: ");
+                    num2 = scanner.nextDouble();
+                    System.out.println("Result: " + (num1 * num2));
+                    break;
+                case 4:
+                    System.out.print("Enter the first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter the second number: ");
+                    num2 = scanner.nextDouble();
+                    if (num2 != 0) {
+                        System.out.println("Result: " + (num1 / num2));
+                    } else {
+                        System.out.println("Error: Division by zero.");
+                    }
+                    break;
+                case 5:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please choose a valid option.");
+            }
+        }
+
+        // Close the scanner to release resources
+        scanner.close();
+    }
+}
+
+output:
+-------
+
+Simple Calculator Menu:
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+5. Exit
+Enter your choice (1-5): 1
+Enter the first number: 10
+Enter the second number: 5
+Result: 15.0
+
+Simple Calculator Menu:
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+5. Exit
+Enter your choice (1-5): 4
+Enter the first number: 8
+Enter the second number: 0
+Error: Division by zero.
+
+Simple Calculator Menu:
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+5. Exit
+Enter your choice (1-5): 5
+
+Exercise: Find Largest and Smallest Elements in an Array
+Create a Java program that finds and displays the largest and smallest elements in an array of integers. The program should do the following:
+
+Prompt the user to enter the number of elements in the array.
+Read the user's input using the Scanner class.
+Prompt the user to enter the elements of the array.
+Read the elements and store them in an array.
+Create two methods, one for finding the largest element and another for finding the smallest element in the array.
+Call these methods to find and display the largest and smallest elements.
+Here's the code for this exercise:
+
+java
+Copy code
+import java.util.Scanner;
+
+public class ArrayMinMaxFinder {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements in the array: ");
+        int numElements = scanner.nextInt();
+
+        int[] arr = new int[numElements];
+
+        System.out.println("Enter the elements of the array:");
+
+        for (int i = 0; i < numElements; i++) {
+            System.out.print("Element " + (i + 1) + ": ");
+            arr[i] = scanner.nextInt();
+        }
+
+        int max = findLargestElement(arr);
+        int min = findSmallestElement(arr);
+
+        System.out.println("Largest element: " + max);
+        System.out.println("Smallest element: " + min);
+
+        // Close the scanner to release resources
+        scanner.close();
+    }
+
+    public static int findLargestElement(int[] arr) {
+        int max = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+
+        return max;
+    }
+
+    public static int findSmallestElement(int[] arr) {
+        int min = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+
+        return min;
+    }
+}
+
+output:
+------
+
+Enter the number of elements in the array: 5
+Enter the elements of the array:
+Element 1: 15
+Element 2: 7
+Element 3: 23
+Element 4: 10
+Element 5: 3
+Largest element: 23
+Smallest element: 3
+
+Exercise: Palindrome Checker
+Create a Java program that checks if a given string is a palindrome. A palindrome is a word, phrase, or sequence of characters that reads the same forward and backward. The program should do the following:
+
+Prompt the user to enter a string.
+Read the user's input using the Scanner class.
+Create a method to check if the entered string is a palindrome.
+Display a message indicating whether the string is a palindrome or not.
+Here's the code for this exercise:
+
+java
+Copy code
+import java.util.Scanner;
+
+public class PalindromeChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+
+        boolean isPalindrome = checkPalindrome(input);
+
+        if (isPalindrome) {
+            System.out.println("The string is a palindrome.");
+        } else {
+            System.out.println("The string is not a palindrome.");
+        }
+
+        // Close the scanner to release resources
+        scanner.close();
+    }
+
+    public static boolean checkPalindrome(String str) {
+        // Remove spaces and convert to lowercase for a case-insensitive check
+        str = str.replaceAll("\\s", "").toLowerCase();
+
+        int left = 0;
+        int right = str.length() - 1;
+
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        return true;
+    }
+}
+
+output:
+------
+Enter a string: racecar
+The string is a palindrome.
