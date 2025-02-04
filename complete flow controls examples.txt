@@ -1,0 +1,284 @@
+Exercise 1: Find the Maximum Number
+
+Write a Java program that finds the maximum of three numbers.
+
+import java.util.Scanner;
+
+public class MaxNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+        
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+        
+        System.out.print("Enter the third number: ");
+        int num3 = scanner.nextInt();
+        
+        int max = num1;
+        if (num2 > max) {
+            max = num2;
+        }
+        if (num3 > max) {
+            max = num3;
+        }
+        
+        System.out.println("The maximum number is: " + max);
+    }
+}
+Exercise 2: Calculate Factorial
+
+Write a Java program to calculate the factorial of a given number.
+
+
+import java.util.Scanner;
+
+public class Factorial {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter a positive integer: ");
+        int num = scanner.nextInt();
+        
+        if (num < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+        } else {
+            int factorial = 1;
+            for (int i = 1; i <= num; i++) {
+                factorial *= i;
+            }
+            System.out.println("The factorial of " + num + " is: " + factorial);
+        }
+    }
+}
+Exercise 3: Print Prime Numbers
+
+Write a Java program to print all prime numbers from 1 to N.
+
+
+public class PrimeNumbers {
+    public static void main(String[] args) {
+        int N = 50; // Adjust N as needed
+        
+        for (int num = 2; num <= N; num++) {
+            boolean isPrime = true;
+            for (int i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                System.out.print(num + " ");
+            }
+        }
+    }
+}
+
+
+Exercise 4: Calculate Sum and Average
+
+Write a Java program that calculates the sum and average of a given set of numbers.
+
+java
+Copy code
+import java.util.Scanner;
+
+public class SumAndAverage {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the number of values: ");
+        int n = scanner.nextInt();
+        
+        if (n <= 0) {
+            System.out.println("Invalid input. Number of values should be positive.");
+            return;
+        }
+        
+        double sum = 0;
+        for (int i = 1; i <= n; i++) {
+            System.out.print("Enter value #" + i + ": ");
+            double value = scanner.nextDouble();
+            sum += value;
+        }
+        
+        double average = sum / n;
+        
+        System.out.println("Sum: " + sum);
+        System.out.println("Average: " + average);
+    }
+}
+Exercise 5: Check Leap Year
+
+Write a Java program that checks if a given year is a leap year or not.
+
+java
+Copy code
+import java.util.Scanner;
+
+public class LeapYear {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter a year: ");
+        int year = scanner.nextInt();
+        
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+            System.out.println(year + " is a leap year.");
+        } else {
+            System.out.println(year + " is not a leap year.");
+        }
+    }
+}
+Exercise 6: Calculate Fibonacci Series
+
+Write a Java program to print the first N numbers in the Fibonacci series.
+
+java
+Copy code
+public class FibonacciSeries {
+    public static void main(String[] args) {
+        int N = 10; // Adjust N as needed
+        
+        int prev = 0;
+        int current = 1;
+        
+        System.out.print("Fibonacci Series: ");
+        for (int i = 0; i < N; i++) {
+            System.out.print(prev + " ");
+            int next = prev + current;
+            prev = current;
+            current = next;
+        }
+    }
+}
+
+Exercise 9: Reverse a Number
+
+Write a Java program to reverse a given integer.
+
+
+public class ReverseNumber {
+    public static void main(String[] args) {
+        int num = 12345; // Change this to the desired number
+        
+        int reversed = 0;
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+        
+        System.out.println("Reversed number: " + reversed);
+    }
+}
+
+
+2. Printing a Square Pattern:
+
+java
+Copy code
+public class SquarePattern {
+    public static void main(String[] args) {
+        int rows = 4;
+        
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= rows; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+3. Printing a Right-Angled Triangle Pattern:
+
+java
+Copy code
+public class RightAngledTrianglePattern {
+    public static void main(String[] args) {
+        int rows = 5;
+        
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+4. Printing a Reverse Triangle Pattern:
+
+java
+Copy code
+public class ReverseTrianglePattern {
+    public static void main(String[] args) {
+        int rows = 5;
+        
+        for (int i = rows; i >= 1; i--) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+5. Printing a Pyramid Pattern:
+
+
+public class PyramidPattern {
+    public static void main(String[] args) {
+        int rows = 5;
+        
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= rows - i; j++) {
+                System.out.print("  "); // Print spaces
+            }
+            for (int k = 1; k <= 2 * i - 1; k++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+6. Printing a Hollow Square Pattern:
+
+public class HollowSquarePattern {
+    public static void main(String[] args) {
+        int rows = 5;
+        
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= rows; j++) {
+                if (i == 1 || i == rows || j == 1 || j == rows) {
+                    System.out.print("* ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+
+7. Printing a Number Pattern:
+
+public class NumberPattern {
+    public static void main(String[] args) {
+        int rows = 5;
+        
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+

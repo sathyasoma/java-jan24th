@@ -1,0 +1,140 @@
+Exercise 1: Print Numbers
+Write a Java program to print numbers from 1 to 10 using a for loop.
+
+
+public class PrintNumbers {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            System.out.print(i + " ");
+        }
+    }
+}
+Exercise 2: Sum of Natural Numbers
+Write a Java program to calculate the sum of natural numbers from 1 to n, where n is provided by the user.
+
+
+import java.util.Scanner;
+
+public class SumOfNaturalNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter a positive integer (n): ");
+        int n = scanner.nextInt();
+        
+        int sum = 0;
+        
+        for (int i = 1; i <= n; i++) {
+            sum += i;
+        }
+        
+        System.out.println("Sum of natural numbers from 1 to " + n + " is " + sum);
+        
+        // Close the scanner to release resources
+        scanner.close();
+    }
+}
+Exercise 3: Factorial Calculation
+Write a Java program to calculate the factorial of a number n, where n is provided by the user.
+
+
+import java.util.Scanner;
+
+public class FactorialCalculation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter a non-negative integer (n): ");
+        int n = scanner.nextInt();
+        
+        if (n < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+        } else {
+            long factorial = 1;
+            
+            for (int i = 1; i <= n; i++) {
+                factorial *= i;
+            }
+            
+            System.out.println("Factorial of " + n + " is " + factorial);
+        }
+        
+        // Close the scanner to release resources
+        scanner.close();
+    }
+}
+Exercise 4: Print Even Numbers
+Write a Java program to print even numbers from 2 to 20 using a while loop.
+
+public class PrintEvenNumbers {
+    public static void main(String[] args) {
+        int number = 2;
+        
+        while (number <= 20) {
+            System.out.print(number + " ");
+            number += 2;
+        }
+    }
+}
+Exercise 5: Reverse a String
+Write a Java program to reverse a given string.
+
+
+import java.util.Scanner;
+
+public class ReverseString {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+        
+        String reversed = "";
+        
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed += input.charAt(i);
+        }
+        
+        System.out.println("Reversed string: " + reversed);
+        
+        // Close the scanner to release resources
+        scanner.close();
+    }
+}
+
+Exercise 6: Fibonacci Sequence
+Write a Java program to generate and print the Fibonacci sequence up to a specified number of terms. The Fibonacci sequence starts with 0 and 1, and each subsequent term is the sum of the two preceding terms.
+
+
+import java.util.Scanner;
+
+public class FibonacciSequence {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the number of terms in the Fibonacci sequence: ");
+        int numTerms = scanner.nextInt();
+        
+        int firstTerm = 0;
+        int secondTerm = 1;
+        
+        System.out.print("Fibonacci sequence: " + firstTerm + " " + secondTerm + " ");
+        
+        for (int i = 3; i <= numTerms; i++) {
+            int nextTerm = firstTerm + secondTerm;
+            System.out.print(nextTerm + " ");
+            firstTerm = secondTerm;
+            secondTerm = nextTerm;
+        }
+        
+        // Close the scanner to release resources
+        scanner.close();
+    }
+}
+
+output:
+------
+Enter the number of terms in the Fibonacci sequence: 8
+Fibonacci sequence: 0 1 1 2 3 5 8 13
+
+

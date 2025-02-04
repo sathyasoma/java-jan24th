@@ -1,0 +1,143 @@
+Exercise 1: Day of the Week
+Write a Java program that takes an integer representing a day of the week (1 for Sunday, 2 for Monday, etc.) and prints the corresponding day's name.
+
+
+import java.util.Scanner;
+
+public class DayOfWeek {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number (1-7) for the day of the week: ");
+        int dayNumber = scanner.nextInt();
+        String dayName;
+
+        switch (dayNumber) {
+            case 1:
+                dayName = "Sunday";
+                break;
+            case 2:
+                dayName = "Monday";
+                break;
+            case 3:
+                dayName = "Tuesday";
+                break;
+            case 4:
+                dayName = "Wednesday";
+                break;
+            case 5:
+                dayName = "Thursday";
+                break;
+            case 6:
+                dayName = "Friday";
+                break;
+            case 7:
+                dayName = "Saturday";
+                break;
+            default:
+                dayName = "Invalid day";
+                break;
+        }
+
+        System.out.println("The day is: " + dayName);
+
+        // Close the scanner to release resources
+        scanner.close();
+    }
+}
+Exercise 2: Calculator
+Write a Java program that takes two numbers and an operator (+, -, *, /) as input and performs the corresponding operation using a switch statement.
+
+
+import java.util.Scanner;
+
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the first number: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter the operator (+, -, *, /): ");
+        char operator = scanner.next().charAt(0);
+
+        System.out.print("Enter the second number: ");
+        double num2 = scanner.nextDouble();
+
+        double result;
+
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                if (num2 != 0) {
+                    result = num1 / num2;
+                } else {
+                    System.out.println("Error: Division by zero");
+                    return;
+                }
+                break;
+            default:
+                System.out.println("Invalid operator");
+                return;
+        }
+
+        System.out.println("Result: " + result);
+
+        // Close the scanner to release resources
+        scanner.close();
+    }
+}
+Exercise 3: Season Determiner
+Write a Java program that takes a month number (1-12) as input and uses a switch statement to determine and print the season (Spring, Summer, Fall, Winter) for that month.
+
+
+import java.util.Scanner;
+
+public class SeasonDeterminer {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a month number (1-12): ");
+        int month = scanner.nextInt();
+        String season;
+
+        switch (month) {
+            case 12:
+            case 1:
+            case 2:
+                season = "Winter";
+                break;
+            case 3:
+            case 4:
+            case 5:
+                season = "Spring";
+                break;
+            case 6:
+            case 7:
+            case 8:
+                season = "Summer";
+                break;
+            case 9:
+            case 10:
+            case 11:
+                season = "Fall";
+                break;
+            default:
+                season = "Invalid month";
+                break;
+        }
+
+        System.out.println("The season is: " + season);
+
+        // Close the scanner to release resources
+        scanner.close();
+    }
+}

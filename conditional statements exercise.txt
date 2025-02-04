@@ -1,0 +1,131 @@
+Exercise 1: Grade Evaluation
+Write a Java program that takes a student's score as input and prints their grade based on the following grading system:
+
+90-100: A
+80-89: B
+70-79: C
+60-69: D
+Below 60: F
+
+
+import java.util.Scanner;
+
+public class GradeEvaluation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter your score: ");
+        int score = scanner.nextInt();
+        
+        char grade;
+        
+        if (score >= 90 && score <= 100) {
+            grade = 'A';
+        } else if (score >= 80) {
+            grade = 'B';
+        } else if (score >= 70) {
+            grade = 'C';
+        } else if (score >= 60) {
+            grade = 'D';
+        } else {
+            grade = 'F';
+        }
+        
+        System.out.println("Your grade is: " + grade);
+        
+        // Close the scanner to release resources
+        scanner.close();
+    }
+}
+Exercise 2: Leap Year Checker
+Write a Java program that checks if a given year is a leap year or not. A leap year is divisible by 4, except for years divisible by 100 but not divisible by 400.
+
+
+import java.util.Scanner;
+
+public class LeapYearChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter a year: ");
+        int year = scanner.nextInt();
+        
+        boolean isLeapYear;
+        
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+            isLeapYear = true;
+        } else {
+            isLeapYear = false;
+        }
+        
+        if (isLeapYear) {
+            System.out.println(year + " is a leap year.");
+        } else {
+            System.out.println(year + " is not a leap year.");
+        }
+        
+        // Close the scanner to release resources
+        scanner.close();
+    }
+}
+Exercise 3: Largest Number
+Write a Java program that takes three numbers as input and prints the largest of the three numbers.
+
+
+import java.util.Scanner;
+
+public class LargestNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+        
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+        
+        System.out.print("Enter the third number: ");
+        int num3 = scanner.nextInt();
+        
+        int largest;
+        
+        if (num1 >= num2 && num1 >= num3) {
+            largest = num1;
+        } else if (num2 >= num1 && num2 >= num3) {
+            largest = num2;
+        } else {
+            largest = num3;
+        }
+        
+        System.out.println("The largest number is: " + largest);
+        
+        // Close the scanner to release resources
+        scanner.close();
+    }
+}
+
+Exercise 4: Positive or Negative Number
+Write a Java program that takes an integer as input and checks if it's a positive, negative, or zero.
+
+
+import java.util.Scanner;
+
+public class PositiveNegativeZero {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter an integer: ");
+        int number = scanner.nextInt();
+
+        if (number > 0) {
+            System.out.println("The number is positive.");
+        } else if (number < 0) {
+            System.out.println("The number is negative.");
+        } else {
+            System.out.println("The number is zero.");
+        }
+
+        // Close the scanner to release resources
+        scanner.close();
+    }
+}
