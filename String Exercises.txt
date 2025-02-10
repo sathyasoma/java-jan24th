@@ -1,0 +1,299 @@
+Exercise 1: Reverse a String
+
+Write a Java program to reverse a given string.
+
+Solution:
+
+
+public class ReverseString {
+    public static void main(String[] args) {
+        String input = "Hello, World!";
+        String reversed = reverse(input);
+        System.out.println("Original String: " + input);
+        System.out.println("Reversed String: " + reversed);
+    }
+
+    public static String reverse(String input) {
+        StringBuilder reversed = new StringBuilder();
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed.append(input.charAt(i));
+        }
+        return reversed.toString();
+    }
+}
+Exercise 2: Count Vowels and Consonants
+
+Write a Java program to count the number of vowels and consonants in a given string.
+
+Solution:
+
+
+public class CountVowelsConsonants {
+    public static void main(String[] args) {
+        String input = "Hello, World!";
+        int[] counts = countVowelsConsonants(input);
+        System.out.println("Vowels: " + counts[0]);
+        System.out.println("Consonants: " + counts[1]);
+    }
+
+    public static int[] countVowelsConsonants(String input) {
+        input = input.toLowerCase(); // Convert to lowercase for case-insensitive counting
+        int vowels = 0;
+        int consonants = 0;
+        for (char c : input.toCharArray()) {
+            if (c >= 'a' && c <= 'z') {
+                if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                    vowels++;
+                } else {
+                    consonants++;
+                }
+            }
+        }
+        int[] counts = {vowels, consonants};
+        return counts;
+    }
+}
+Exercise 3: Check Palindrome
+
+Write a Java program to check if a given string is a palindrome (reads the same forwards and backwards).
+
+Solution:
+
+
+public class PalindromeCheck {
+    public static void main(String[] args) {
+        String input = "racecar";
+        boolean isPalindrome = checkPalindrome(input);
+        if (isPalindrome) {
+            System.out.println(input + " is a palindrome.");
+        } else {
+            System.out.println(input + " is not a palindrome.");
+        }
+    }
+
+    public static boolean checkPalindrome(String input) {
+        input = input.toLowerCase(); // Convert to lowercase for case-insensitive checking
+        int left = 0;
+        int right = input.length() - 1;
+        while (left < right) {
+            if (input.charAt(left) != input.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+}
+Exercise 4: Count Words in a String
+
+Write a Java program to count the number of words in a given string.
+
+Solution:
+
+
+public class CountWords {
+    public static void main(String[] args) {
+        String input = "This is a sample sentence.";
+        int wordCount = countWords(input);
+        System.out.println("Number of words: " + wordCount);
+    }
+
+    public static int countWords(String input) {
+        String[] words = input.split("\\s+");
+        return words.length;
+    }
+}
+
+Exercise 5: Remove Whitespaces
+
+Write a Java program to remove all whitespaces from a given string.
+
+Solution:
+
+public class RemoveWhitespace {
+    public static void main(String[] args) {
+        String input = "Hello,    World!";
+        String withoutWhitespace = removeWhitespace(input);
+        System.out.println("Original String: " + input);
+        System.out.println("String without Whitespace: " + withoutWhitespace);
+    }
+
+    public static String removeWhitespace(String input) {
+        return input.replaceAll("\\s+", "");
+    }
+}
+Exercise 6: Find Substring Occurrences
+
+Write a Java program to find all occurrences of a substring within a given string.
+
+Solution:
+
+public class SubstringOccurrences {
+    public static void main(String[] args) {
+        String input = "Java is a programming language. Java is fun!";
+        String substring = "Java";
+        int occurrences = findSubstringOccurrences(input, substring);
+        System.out.println("Substring \"" + substring + "\" occurs " + occurrences + " times.");
+    }
+
+    public static int findSubstringOccurrences(String input, String substring) {
+        int count = 0;
+        int index = input.indexOf(substring);
+        while (index != -1) {
+            count++;
+            index = input.indexOf(substring, index + 1);
+        }
+        return count;
+    }
+}
+Exercise 7: Replace Substring
+
+Write a Java program to replace all occurrences of a substring with another substring in a given string.
+
+Solution:
+
+
+public class ReplaceSubstring {
+    public static void main(String[] args) {
+        String input = "Hello, World! Hello, Java!";
+        String originalSubstring = "Hello";
+        String newSubstring = "Hi";
+        String replaced = replaceSubstring(input, originalSubstring, newSubstring);
+        System.out.println("Original String: " + input);
+        System.out.println("String after replacement: " + replaced);
+    }
+
+    public static String replaceSubstring(String input, String original, String replacement) {
+        return input.replace(original, replacement);
+    }
+}
+Exercise 8: Capitalize Words
+
+Write a Java program to capitalize the first letter of each word in a given sentence.
+
+Solution:
+
+
+public class CapitalizeWords {
+    public static void main(String[] args) {
+        String input = "java programming is fun";
+        String capitalized = capitalizeFirstLetter(input);
+        System.out.println("Original String: " + input);
+        System.out.println("Capitalized String: " + capitalized);
+    }
+
+    public static String capitalizeFirstLetter(String input) {
+        String[] words = input.split("\\s+");
+        StringBuilder result = new StringBuilder();
+        for (String word : words) {
+            result.append(Character.toUpperCase(word.charAt(0)))
+                .append(word.substring(1))
+                .append(" ");
+        }
+        return result.toString().trim();
+    }
+}
+
+Exercise 9: Check Anagrams
+
+Write a Java program to check if two strings are anagrams of each other. An anagram is a word or phrase formed by rearranging the letters of another.
+
+Solution:
+
+
+public class AnagramCheck {
+    public static void main(String[] args) {
+        String str1 = "listen";
+        String str2 = "silent";
+        boolean areAnagrams = checkAnagrams(str1, str2);
+        if (areAnagrams) {
+            System.out.println(str1 + " and " + str2 + " are anagrams.");
+        } else {
+            System.out.println(str1 + " and " + str2 + " are not anagrams.");
+        }
+    }
+
+    public static boolean checkAnagrams(String str1, String str2) {
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+        char[] chars1 = str1.toCharArray();
+        char[] chars2 = str2.toCharArray();
+        Arrays.sort(chars1);
+        Arrays.sort(chars2);
+        return Arrays.equals(chars1, chars2);
+    }
+}
+Exercise 10: Find Longest Word
+
+Write a Java program to find the longest word in a sentence.
+
+Solution:
+
+
+public class LongestWord {
+    public static void main(String[] args) {
+        String sentence = "The quick brown fox jumps over the lazy dog";
+        String longestWord = findLongestWord(sentence);
+        System.out.println("Longest word in the sentence: " + longestWord);
+    }
+
+    public static String findLongestWord(String sentence) {
+        String[] words = sentence.split("\\s+");
+        String longestWord = "";
+        for (String word : words) {
+            if (word.length() > longestWord.length()) {
+                longestWord = word;
+            }
+        }
+        return longestWord;
+    }
+}
+Exercise 11: Reverse Words in a Sentence
+
+Write a Java program to reverse the words in a sentence.
+
+Solution:
+
+
+public class ReverseWords {
+    public static void main(String[] args) {
+        String sentence = "Hello World";
+        String reversed = reverseWords(sentence);
+        System.out.println("Original sentence: " + sentence);
+        System.out.println("Reversed sentence: " + reversed);
+    }
+
+    public static String reverseWords(String sentence) {
+        String[] words = sentence.split("\\s+");
+        StringBuilder reversed = new StringBuilder();
+        for (int i = words.length - 1; i >= 0; i--) {
+            reversed.append(words[i]).append(" ");
+        }
+        return reversed.toString().trim();
+    }
+}
+Exercise 12: Count Character Frequency
+
+Write a Java program to count the frequency of each character in a given string.
+
+Solution:
+
+
+public class CharacterFrequency {
+    public static void main(String[] args) {
+        String input = "programming";
+        countCharacterFrequency(input);
+    }
+
+    public static void countCharacterFrequency(String input) {
+        HashMap<Character, Integer> frequencyMap = new HashMap<>();
+        for (char c : input.toCharArray()) {
+            frequencyMap.put(c, frequencyMap.getOrDefault(c, 0) + 1);
+        }
+        for (Map.Entry<Character, Integer> entry : frequencyMap.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+    }
+}
