@@ -1,0 +1,208 @@
+1: What is the output of the following code snippet?
+
+String str1 = "hello";
+String str2 = "hello";
+System.out.println(str1 == str2);
+A) true
+B) false
+C) Compilation Error
+D) Runtime Error
+
+
+2: Which method is used to concatenate two strings in Java?
+A) append()
+B) concat()
+C) join()
+D) add()
+
+
+3: What happens when you call str.trim() on a string str in Java?
+
+A) Removes all leading and trailing spaces from str
+B) Trims the string to a specific length
+C) Converts the string to uppercase
+D) Replaces all occurrences of spaces with an empty string
+
+4: Which of the following methods is used to find the length of a string in Java?
+
+A) length()
+B) size()
+C) count()
+D) getSize()
+
+
+5: What is the correct way to compare two strings for equality in Java?
+
+A) Using str1.equals(str2)
+B) Using str1 == str2
+C) Both A and B
+D) None of the above
+
+
+6: What is the output of the following code snippet?
+
+String s1 = "Java";
+String s2 = new String("Java");
+System.out.println(s1 == s2);
+A) true
+B) false
+C) Compilation Error
+D) Runtime Error
+
+
+7: Which method can be used to convert a string to lowercase in Java?
+A) toLower()
+B) convertToLowerCase()
+C) toLowerCase()
+D) toLowerLetters()
+
+
+8: What does the substring() method do in Java?
+A) Modifies the string
+B) Extracts a portion of the string
+C) Compares two strings
+D) Joins two strings
+
+
+9: What will the following code snippet output?
+
+String str = "abcdef";
+System.out.println(str.substring(1, 4));
+A) "abc"
+B) "bcd"
+C) "cde"
+D) "abcd"
+
+
+10: Which of the following is not a method in the String class?
+A) charAt(int index)
+B) replace(char oldChar, char newChar)
+C) toString()
+D) reverse()
+
+11: What will the following code print?
+
+String str = "Java Programming";
+System.out.println(str.indexOf("a"));
+A) 1
+B) 2
+C) 3
+D) 4
+
+12: What does the intern() method of the String class do?
+A) Creates a new string
+B) Converts a string to uppercase
+C) Returns the canonical representation of the string
+D) Reverses the string
+
+13: What is the result of the following code?
+String s = " ";
+System.out.println(s.isEmpty());
+A) true
+B) false
+C) Compilation Error
+D) Runtime Error
+
+
+14: What will the following code output?
+
+String str = "Hello World";
+System.out.println(str.replace("World", "Java"));
+A) Hello Java
+B) HelloWorld
+C) Hello Java World
+D) Hello JavaHello World
+
+
+15: Which class in Java is immutable?
+A) String
+B) StringBuilder
+C) StringBuffer
+D) None of the above
+
+
+16: What is the output of the following code?
+
+String str = "Java";
+str.concat("Programming");
+System.out.println(str);
+A) JavaProgramming
+B) Java
+C) Programming
+D) Compilation Error
+
+
+17: Which method can be used to check if a string starts with a specific prefix?
+A) startsWith()
+B) beginWith()
+C) hasPrefix()
+D) checkPrefix()
+
+
+18: What will the following code snippet output?
+
+String str = "abcdef";
+System.out.println(str.lastIndexOf("e"));
+A) 4
+B) 5
+C) -1
+D) 3
+
+
+19: Which of the following is the correct way to create a mutable string in Java?
+A) Using String
+B) Using StringBuilder
+C) Using StringBuffer
+D) Both B and C
+
+
+20: What is the output of the following code?
+
+String str1 = "Java";
+String str2 = "JAVA";
+System.out.println(str1.equalsIgnoreCase(str2));
+A) true
+B) false
+C) Compilation Error
+D) Runtime Error
+
+
+21: What does the split() method in the String class return?
+A) An array of substrings
+B) A single substring
+C) A StringBuilder object
+D) None of the above
+
+
+22: What is the output of this code?
+
+String s = "hello";
+System.out.println(s.substring(2));
+A) "hello"
+B) "llo"
+C) "hel"
+D) "he"
+
+
+23: What is the purpose of the valueOf() method in the String class?
+A) Convert primitive data types into a string representation
+B) Replace all characters in a string
+C) Create a copy of a string
+D) Check if a string contains a value
+
+
+24: What will the following code print?
+
+String str = "abcabc";
+System.out.println(str.replace('a', 'x'));
+A) "xbcxbc"
+B) "xbcabc"
+C) "abcabc"
+D) Compilation Error
+
+
+25: Which of the following statements about the String class is true?
+A) Strings in Java are immutable.
+B) Strings in Java are mutable.
+C) Strings in Java are stored as char arrays that can be modified.
+D) None of the above.
