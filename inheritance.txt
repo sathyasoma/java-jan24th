@@ -1,0 +1,328 @@
+Exercise 1: Banking System
+Create a basic banking system with three classes: Account, SavingsAccount, and CheckingAccount.
+
+Account Class:
+
+Properties: accountNumber, balance
+Methods: deposit(double amount), withdraw(double amount), and a constructor to set the account number and initial balance.
+SavingsAccount Class (subclass of Account):
+
+Additional Property: interestRate
+Method: addInterest(), which adds interest to the account balance based on the interest rate.
+CheckingAccount Class (subclass of Account):
+
+Additional Property: overdraftLimit
+Method: withdraw(double amount), which allows withdrawing funds up to the overdraft limit.
+Write a Main class to demonstrate the use of these classes by creating instances of both SavingsAccount and CheckingAccount.
+
+Solution:
+----------
+
+class Account {
+    private int accountNumber;
+    protected double balance;
+
+    public Account(int accountNumber, double balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+    }
+
+    public void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient funds.");
+        }
+    }
+}
+
+class SavingsAccount extends Account {
+    private double interestRate;
+
+    public SavingsAccount(int accountNumber, double balance, double interestRate) {
+        super(accountNumber, balance);
+        this.interestRate = interestRate;
+    }
+
+    public void addInterest() {
+        balance += balance * interestRate;
+    }
+}
+
+class CheckingAccount extends Account {
+    private double overdraftLimit;
+
+    public CheckingAccount(int accountNumber, double balance, double overdraftLimit) {
+        super(accountNumber, balance);
+        this.overdraftLimit = overdraftLimit;
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        if (amount <= balance + overdraftLimit) {
+            balance -= amount;
+        } else {
+            System.out.println("Exceeds overdraft limit.");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        SavingsAccount savingsAccount = new SavingsAccount(101, 1000.0, 0.05);
+        savingsAccount.addInterest();
+        System.out.println("Savings Account Balance: " + savingsAccount.balance);
+
+        CheckingAccount checkingAccount = new CheckingAccount(201, 500.0, 100.0);
+        checkingAccount.withdraw(600.0);
+        System.out.println("Checking Account Balance: " + checkingAccount.balance);
+    }
+}
+This example demonstrates inheritance in a banking system. The Account class serves as the base class, while SavingsAccount and CheckingAccount are subclasses. The Main class shows how to create instances of these classes and call their methods.
+
+
+
+
+Exercise 3: Shape Hierarchy
+Create a class hierarchy representing different geometric shapes: Shape, Circle, and Rectangle.
+
+Shape Class:
+
+Methods: getArea() and getPerimeter() (to be overridden by subclasses).
+Circle Class (subclass of Shape):
+
+Properties: radius
+Implement getArea() and getPerimeter() methods for circles.
+Rectangle Class (subclass of Shape):
+
+Properties: length and width
+Implement getArea() and getPerimeter() methods for rectangles.
+Write a Main class to demonstrate the use of these classes by creating instances of both Circle and Rectangle.
+
+Solution:
+----------
+
+
+abstract class Shape {
+    abstract double getArea();
+    abstract double getPerimeter();
+}
+
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double getArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    double getPerimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    double getArea() {
+        return length * width;
+    }
+
+    @Override
+    double getPerimeter() {
+        return 2 * (length + width);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Circle circle = new Circle(5.0);
+        System.out.println("Circle Area: " + circle.getArea());
+        System.out.println("Circle Perimeter: " + circle.getPerimeter());
+
+        Rectangle rectangle = new Rectangle(4.0, 6.0);
+        System.out.println("Rectangle Area: " + rectangle.getArea());
+        System.out.println("Rectangle Perimeter: " + rectangle.getPerimeter());
+    }
+}
+
+
+
+
+Exercise: Employee Management System
+Create a Java class hierarchy for an employee management system with three classes: Employee, Manager, and Developer.
+
+Employee Class:
+
+Properties: name, employeeId, salary
+Method: displayDetails(), which prints the employee's name, ID, and salary.
+Manager Class (subclass of Employee):
+
+Additional Property: department
+Method: manageTeam(), which prints "Managing the team."
+Developer Class (subclass of Employee):
+
+Additional Property: programmingLanguage
+Method: writeCode(), which prints "Writing code in Java."
+Write a Main class to demonstrate the use of these classes by creating instances of both Manager and Developer, setting their properties, and calling their methods.
+
+Solution:
+
+class Employee {
+    private String name;
+    private int employeeId;
+    private double salary;
+
+    public Employee(String name, int employeeId, double salary) {
+        this.name = name;
+        this.employeeId = employeeId;
+        this.salary = salary;
+    }
+
+    public void displayDetails() {
+        System.out.println("Employee Name: " + name);
+        System.out.println("Employee ID: " + employeeId);
+        System.out.println("Salary: $" + salary);
+    }
+}
+
+class Manager extends Employee {
+    private String department;
+
+    public Manager(String name, int employeeId, double salary, String department) {
+        super(name, employeeId, salary);
+        this.department = department;
+    }
+
+    public void manageTeam() {
+        System.out.println("Managing the team.");
+    }
+}
+
+class Developer extends Employee {
+    private String programmingLanguage;
+
+    public Developer(String name, int employeeId, double salary, String programmingLanguage) {
+        super(name, employeeId, salary);
+        this.programmingLanguage = programmingLanguage;
+    }
+
+    public void writeCode() {
+        System.out.println("Writing code in " + programmingLanguage + ".");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Manager manager = new Manager("John Doe", 101, 80000.0, "Engineering");
+        manager.displayDetails();
+        manager.manageTeam();
+
+        Developer developer = new Developer("Alice Smith", 202, 70000.0, "Java");
+        developer.displayDetails();
+        developer.writeCode();
+    }
+}
+
+
+Exercise: Book Hierarchy
+Create a Java class hierarchy for different types of books: Book, FictionBook, and NonFictionBook.
+
+Book Class:
+
+Properties: title, author, year
+Method: displayInfo(), which prints the book's title, author, and year of publication.
+FictionBook Class (subclass of Book):
+
+Additional Property: genre
+Method: read(), which prints "Enjoy reading this fiction book."
+NonFictionBook Class (subclass of Book):
+
+Additional Property: topic
+Method: study(), which prints "Use this non-fiction book for studying."
+Write a Main class to demonstrate the use of these classes by creating instances of both FictionBook and NonFictionBook, setting their properties, and calling their methods.
+
+Solution:
+
+class Book {
+    private String title;
+    private String author;
+    private int year;
+
+    public Book(String title, String author, int year) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+    }
+
+    public void displayInfo() {
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
+        System.out.println("Year: " + year);
+    }
+}
+
+class FictionBook extends Book {
+    private String genre;
+
+    public FictionBook(String title, String author, int year, String genre) {
+        super(title, author, year);
+        this.genre = genre;
+    }
+
+    public void read() {
+        System.out.println("Enjoy reading this fiction book.");
+    }
+}
+
+class NonFictionBook extends Book {
+    private String topic;
+
+    public NonFictionBook(String title, String author, int year, String topic) {
+        super(title, author, year);
+        this.topic = topic;
+    }
+
+    public void study() {
+        System.out.println("Use this non-fiction book for studying.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        FictionBook fictionBook = new FictionBook("The Great Gatsby", "F. Scott Fitzgerald", 1925, "Drama");
+        fictionBook.displayInfo();
+        fictionBook.read();
+
+        NonFictionBook nonFictionBook = new NonFictionBook("Sapiens: A Brief History of Humankind", "Yuval Noah Harari", 2014, "History");
+        nonFictionBook.displayInfo();
+        nonFictionBook.study();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
