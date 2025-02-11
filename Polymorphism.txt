@@ -1,0 +1,81 @@
+It allows methods to do different things based on the object it is acting upon, 
+ even though they share the same name. 
+Polymorphism provides a way to perform a single action in different forms. 
+In Java, polymorphism can be achieved through method overloading and method overriding.
+
+1. What is Polymorphism?
+Polymorphism means "many shapes" or "many forms." 
+In Java, it refers to the ability of a single method or class to take on multiple forms.
+This is achieved through method overloading (compile-time polymorphism) and method 
+overriding (runtime polymorphism).
+
+2. Types of Polymorphism
+
+Compile-time Polymorphism (Method Overloading): 
+This type of polymorphism is resolved during compile time. 
+Method overloading allows a class to have more than one method with the same name, 
+provided their parameter lists are different.
+
+Runtime Polymorphism (Method Overriding): 
+This type of polymorphism is resolved during runtime. 
+Method overriding allows a subclass to provide a specific implementation of a 
+method that is already defined in its superclass.
+
+========================Examples==============================
+
+Example: Polymorphism with Method Overloading
+
+
+public class Printer {
+    public void print(String message) {
+        System.out.println(message);
+    }
+
+    public void print(int number) {
+        System.out.println(number);
+    }
+
+    public void print(double number) {
+        System.out.println(number);
+    }
+
+    public static void main(String[] args) {
+        Printer printer = new Printer();
+        printer.print("Hello, World!");  // Output: Hello, World!
+        printer.print(123);             // Output: 123
+        printer.print(3.14);            // Output: 3.14
+    }
+}
+
+Example: Polymorphism with Method Overriding
+
+
+class Animal {
+    public void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal myDog = new Dog();
+        Animal myCat = new Cat();
+
+        myDog.makeSound();  // Output: Dog barks
+        myCat.makeSound();  // Output: Cat meows
+    }
+}
